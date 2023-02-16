@@ -1,10 +1,11 @@
+// import data from '../data/json'
 import createSpinner from "./spinner.js";
 import { topNewsRender } from "./render/topnewsrender.js";
 import { latestRender } from "./render/latestRender.js";
 
 (function () {
   //로딩 상태
-  const $aside = document.getElementById('aside')
+  const $aside = document.getElementById("aside");
   let loading = true;
   // 좌측 상단 Top News 부분의 콘텐츠
   const renderTopNews = () => {
@@ -13,7 +14,7 @@ import { latestRender } from "./render/latestRender.js";
     if (loading) {
       createSpinner(topNewsList);
     }
-    fetch("./data/json/top.json")
+    fetch("../data/json/top.json")
       .then((res) => {
         if (res.ok) return res.json();
       })
@@ -38,7 +39,7 @@ import { latestRender } from "./render/latestRender.js";
   const renderLatestNews = () => {
     const latestNewList = document.getElementById("latest_new_list");
 
-    fetch("./data/json/latest.json")
+    fetch("../data/json/latest.json")
       .then((res) => {
         if (res.ok) return res.json();
       })
@@ -65,11 +66,11 @@ import { latestRender } from "./render/latestRender.js";
 
   //aside 템 숨기기/나타나기
   const hideBtn = document.getElementById("hide_btn");
-  let hideState = false
+  let hideState = false;
   const hide = () => {
-    $aside.classList.toggle('hide')
-    hideState =!hideState
-    hideState? hideBtn.innerText ="<<" : hideBtn.innerText =">>"
+    $aside.classList.toggle("hide");
+    hideState = !hideState;
+    hideState ? (hideBtn.innerText = "<<") : (hideBtn.innerText = ">>");
   };
 
   // 'DOMContentLoaded' : HTML 요소를 브라우저가 모두 파싱하는 즉시 실행(css, img 제외)

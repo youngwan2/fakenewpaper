@@ -5,7 +5,7 @@ export default function createSpinner(parent) {
     const spinnerAreaEl = parent.querySelector(".spinner_area");
     const imageEl = document.createElement("img");
     imageEl.alt = "spinner";
-    imageEl.src = "./src/spin.gif";
+    imageEl.src = "../public/gif/spin.gif";
     spinnerAreaEl.append(imageEl);
   } catch (error) {
     console.error(error);
